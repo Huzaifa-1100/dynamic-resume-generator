@@ -7,7 +7,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous" />
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Resume Generator</title>
   </head>
@@ -29,19 +30,20 @@
               id="nameField"
               placeholder="Enter here"
               required
-              class="form-control" 
-              />
+              class="form-control"
+              
+            />
           </div>
           <!-- Contact field -->
           <div class="form-group mt-2">
             <label for="contactField">Your Contact</label>
             <input
-              type="text"
+              type="number"
               id="contactField"
               placeholder="Enter here"
-              class="form-control" 
+              class="form-control"
               required
-              />
+            />
           </div>
           <!-- Address field -->
           <div class="form-group mt-2">
@@ -50,14 +52,15 @@
               id="addressField"
               placeholder="Enter here"
               class="form-control"
-              rows="3"></textarea>
+              rows="3"
+            ></textarea>
           </div>
 
           <!-- Image Field -->
-           <div class="form-group mt-3">
+          <div class="form-group mt-3">
             <label for="">Select Photo</label>
-            <input id="imgField" type="file" class="form-control">
-           </div>
+            <input id="imgField" type="file" class="form-control" />
+          </div>
 
           <!-- Important LInks-->
           <p class="text-secondary my-3">Important Links</p>
@@ -69,17 +72,20 @@
               type="text"
               id="fbField"
               placeholder="Enter here"
-              class="form-control" />
+              class="form-control"
+            />
           </div>
 
           <!-- Email link -->
           <div class="form-group mt-2">
             <label for="emailField">Email</label>
             <input
-              type="text"
+              type="email"
               id="emailField"
               placeholder="Enter here"
-              class="form-control" />
+              class="form-control"
+              required
+            />
           </div>
 
           <!-- Linked link -->
@@ -89,7 +95,8 @@
               type="text"
               id="linkedField"
               placeholder="Enter here"
-              class="form-control" />
+              class="form-control"
+            />
           </div>
         </div>
 
@@ -104,7 +111,8 @@
               id="objectiveField"
               placeholder="Enter here"
               class="form-control"
-              rows="3"></textarea>
+              rows="3"
+            ></textarea>
           </div>
 
           <!-- Work experience field -->
@@ -113,7 +121,8 @@
             <textarea
               placeholder="Enter here"
               class="form-control weField"
-              rows="3"></textarea>
+              rows="3"
+            ></textarea>
             <div class="container text-center mt-2" id="weAddButton">
               <button onclick="addNewWeField()" class="btn btn-primary btn-sm">
                 Add
@@ -127,7 +136,8 @@
             <textarea
               placeholder="Enter here"
               class="form-control eqField"
-              rows="3"></textarea>
+              rows="3"
+            ></textarea>
             <div class="container text-center mt-2" id="aqAddButton">
               <button onclick="addNewAqField()" class="btn btn-primary btn-sm">
                 Add
@@ -141,7 +151,8 @@
             <textarea
               placeholder="Enter here"
               class="form-control ssFied"
-              rows="3"></textarea>
+              rows="3"
+            ></textarea>
             <div class="container text-center mt-2" id="ssAddButton">
               <button onclick="addNewSsField()" class="btn btn-primary btn-sm">
                 Add
@@ -162,15 +173,15 @@
       <div class="row">
         <div class="col-md-4 text-center py-5 background">
           <!-- First col  -->
-           <!-- Image -->
+          <!-- Image -->
           <img
             src="https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
             alt="img"
             class="img-fluid myimg"
             id="imgTemplate"
-            />
+          />
           <div class="card-header backgroundfirscol mt-4">
-            <h3>Personal Information</h3>
+            <h3 class="heading">Personal Information</h3>
           </div>
           <div class="card-body mt-4 overflow-auto">
             <h5>Name:</h5>
@@ -178,14 +189,16 @@
             <h5>Contact:</h5>
             <p id="contactT" class="text-size">+92-310-5070125</p>
             <h5>Address:</h5>
-            <p id="addressT" class="text-size">noada, st-3,new lane, sanfransisco</p>
+            <p id="addressT" class="text-size">
+              noada, st-3,new lane, sanfransisco
+            </p>
           </div>
           <hr />
           <div class="card-header backgroundfirscol mt-4">
-            <h3>Social Media Links</h3>
+            <h3 class="heading">Social Media Links</h3>
           </div>
           <div class="card-body mt-4 text-size">
-            <p>Facebook: <span id="fbT" ></span></p>
+            <p>Facebook: <span id="fbT"></span></p>
             <p>Email: <span id="emailT"></span></p>
             <p>Linkedin: <span id="linkedT"></span></p>
           </div>
@@ -199,7 +212,7 @@
           <!-- Objective cards -->
           <div class="card mt-4">
             <div class="card-header background">
-              <h3>Objecive</h3>
+              <h3 class="heading">Objecive</h3>
             </div>
             <div class="card-body">
               <p id="objectiveT" class="text-size">
@@ -213,7 +226,7 @@
           <!-- Work experiecne cards -->
           <div class="card mt-4">
             <div class="card-header background">
-              <h3>Work Experience</h3>
+              <h3 class="heading">Work Experience</h3>
             </div>
             <div class="card-body">
               <ul id="weT" class="text-size">
@@ -236,7 +249,7 @@
           <!-- Academic Qualification cards -->
           <div class="card mt-4">
             <div class="card-header background">
-              <h3>Academic Qualification</h3>
+              <h3 class="heading">Academic Qualification</h3>
             </div>
             <div class="card-body">
               <ul id="aqT" class="text-size">
@@ -259,7 +272,7 @@
           <!-- Skills section cards -->
           <div class="card mt-4">
             <div class="card-header background">
-              <h3>Skills Section</h3>
+              <h3 class="heading">Skills Section</h3>
             </div>
             <div class="card-body">
               <ul id="skillsT" class="text-size">
@@ -290,19 +303,17 @@
                 Edit Resume
               </button>
             </div>
-            <!-- share button -->
-             <div class="container mt-3 text-center">
-              <button id="shareBtn" class="btn background">Share Resume</button>
-             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- boot strap -->
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-      <script src="script.js"></script>
-    </body>
-  </html>
+    <!-- boot strap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
