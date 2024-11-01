@@ -1,7 +1,9 @@
-// Function to add dynamic work experience fields
+// add dynamic work experience fields
 function addNewWeField() {
   let newNode = document.createElement("textarea");
-  newNode.classList.add("form-control", "weField", "mt-2");
+  newNode.classList.add("form-control");
+  newNode.classList.add("weField");
+  newNode.classList.add("mt-2");
   newNode.setAttribute("rows", "3");
   newNode.setAttribute("placeholder", "Enter here...");
 
@@ -11,10 +13,12 @@ function addNewWeField() {
   weOb?.insertBefore(newNode, weAddButtonOb);
 }
 
-// Function to add dynamic Academic qualification fields
+// add dynamic Academic qualification fields
 function addNewAqField() {
   let newNode = document.createElement("textarea");
-  newNode.classList.add("form-control", "eqField", "mt-2");
+  newNode.classList.add("form-control");
+  newNode.classList.add("eqField");
+  newNode.classList.add("mt-2");
   newNode.setAttribute("rows", "3");
   newNode.setAttribute("placeholder", "Enter here...");
 
@@ -24,10 +28,12 @@ function addNewAqField() {
   aqOb?.insertBefore(newNode, aqAddButton);
 }
 
-// Function to add dynamic Skill fields
+// add dynamic Skill fields
 function addNewSsField() {
   let newNode = document.createElement("textarea");
-  newNode.classList.add("form-control", "ssFied", "mt-2");
+  newNode.classList.add("form-control");
+  newNode.classList.add("ssFied");
+  newNode.classList.add("mt-2");
   newNode.setAttribute("rows", "3");
   newNode.setAttribute("placeholder", "Enter here...");
 
@@ -36,6 +42,7 @@ function addNewSsField() {
 
   skOb?.insertBefore(newNode, ssAddButton);
 }
+
 
 // Validation function
 function validateInput(id: string, message: string): boolean {
@@ -54,75 +61,220 @@ function validateEmail(email: string): boolean {
   return emailPattern.test(email);
 }
 
-// Main function to generate resume with validation
+// Main function to generate resume
 async function generateResume(): Promise<void> {
-  // Validation checks
-  if (!validateInput("nameField", "your name")) return;
-  if (!validateInput("contactField", "contact number")) return;
-  if (!validateInput("emailField", "your email")) return;
 
-  const emailField = document.getElementById("emailField") as HTMLInputElement;
-  if (emailField && !validateEmail(emailField.value)) {
-    alert("Please enter a valid email address");
-    emailField.focus();
-    return;
+ // Validation checks
+ if (!validateInput("nameField", "your name")) return;
+ if (!validateInput("contactField", "contact number")) return;
+ if (!validateInput("emailField", "your email")) return;
+
+ const emailField = document.getElementById("emailField") as HTMLInputElement;
+ if (emailField && !validateEmail(emailField.value)) {
+   alert("Please enter a valid email address");
+   emailField.focus();
+   return;
+ }
+
+ // Get Elements from input fields
+ const nameField = document.getElementById("nameField") as HTMLInputElement;
+ const nameT1 = document.getElementById("nameT1") as HTMLElement;
+ const nameT2 = document.getElementById("nameT2") as HTMLElement;
+
+ // Push validated name
+ if (nameField && nameT1 && nameT2) {
+   nameT1.innerHTML = nameField.value;
+   nameT2.innerHTML = nameField.value;
+ }
+
+ // Contact
+ const contactField = document.getElementById("contactField") as HTMLInputElement;
+ const contactT = document.getElementById("contactT") as HTMLElement;
+
+ if (contactField && contactT) {
+   contactT.innerHTML = contactField.value;
+ }
+
+ // Address
+ const addressField = document.getElementById("addressField") as HTMLInputElement;
+ const addressT = document.getElementById("addressT") as HTMLElement;
+
+ if (addressField && addressT) {
+   addressT.innerHTML = addressField.value;
+ }
+
+ // Email
+ const emailT = document.getElementById("emailT") as HTMLElement;
+ if (emailField && emailT) {
+   emailT.innerHTML = emailField.value;
+ }
+
+  //   FaceBook Link
+  // Get velue from address field
+  const fbField = document.getElementById("fbField") as HTMLInputElement;
+  // get template object for address
+  const fbT = document.getElementById("fbT") as HTMLElement;
+
+  //   Check if both elements are found
+  if (fbField && fbT) {
+    // Push the value from the input field into the template
+    fbT.innerHTML = fbField.value;
+  } else {
+    console.error(
+      "Element not found: Ensure `fbField` and `fbT` exist in the DOM."
+    );
   }
 
-  // Get Elements from input fields
-  const nameField = document.getElementById("nameField") as HTMLInputElement;
-  const nameT1 = document.getElementById("nameT1") as HTMLElement;
-  const nameT2 = document.getElementById("nameT2") as HTMLElement;
+  //   Linkedin Link
+  // Get velue from Linkedin field
+  const linkedField = document.getElementById(
+    "linkedField"
+  ) as HTMLInputElement;
+  // get template object for Linkedin link
+  const linkedT = document.getElementById("linkedT") as HTMLElement;
 
-  // Push validated name
-  if (nameField && nameT1 && nameT2) {
-    nameT1.innerHTML = nameField.value;
-    nameT2.innerHTML = nameField.value;
+  //   Check if both elements are found
+  if (linkedField && linkedT) {
+    // Push the value from the input field into the template
+    linkedT.innerHTML = linkedField.value;
+  } else {
+    console.error(
+      "Element not found: Ensure `linkedField` and `linkedT` exist in the DOM."
+    );
   }
 
-  // Contact
-  const contactField = document.getElementById("contactField") as HTMLInputElement;
-  const contactT = document.getElementById("contactT") as HTMLElement;
-
-  if (contactField && contactT) {
-    contactT.innerHTML = contactField.value;
-  }
-
-  // Address
-  const addressField = document.getElementById("addressField") as HTMLInputElement;
-  const addressT = document.getElementById("addressT") as HTMLElement;
-
-  if (addressField && addressT) {
-    addressT.innerHTML = addressField.value;
-  }
-
-  // Email
-  const emailT = document.getElementById("emailT") as HTMLElement;
-  if (emailField && emailT) {
-    emailT.innerHTML = emailField.value;
-  }
-
-  // Objective
-  const objectiveField = document.getElementById("objectiveField") as HTMLInputElement;
+  //   Objective
+  // Get value form objective field element
+  const objectiveField = document.getElementById(
+    "objectiveField"
+  ) as HTMLInputElement;
+  // Get Template object for objective
   const objectiveT = document.getElementById("objectiveT") as HTMLElement;
 
+  // check if both elements are found
   if (objectiveField && objectiveT) {
+    // Push the value from the input field into the template
     objectiveT.innerHTML = objectiveField.value;
+  } else {
+    console.error(
+      "Element not found: Ensure `objectiveField` and `objectiveT` exist in the DOM."
+    );
   }
 
-  // Skills, Academic Qualifications, and Work Experience sections remain unchanged
-  // Insert your existing logic here
+  //   Work Experience
 
-  // Profile Image Handling and Form Display Toggle
+  // Get all elements with the class "weField" (input or textarea fields)
+  const weFields = document.getElementsByClassName(
+    "weField"
+  ) as HTMLCollectionOf<HTMLInputElement | HTMLTextAreaElement>;
+
+  // Initialize an empty string to store the list items
+  let str: string = "";
+
+  // Iterate through each element in the HTMLCollection
+  for (const e of Array.from(weFields)) {
+    // Append the value of each field as a list item to the string
+    str += `<li> ${e.value} </li>`;
+  }
+
+  // Find the element with the ID "weT" and update its innerHTML
+  const weT = document.getElementById("weT") as HTMLElement | null;
+
+  if (weT) {
+    weT.innerHTML = str; // Update the innerHTML if the element exists
+  } else {
+    console.error('Element with ID "weT" not found.');
+  }
+
+  //   Academic Qualification
+
+  // Get all elements with the class "eqField" (input or textarea fields)
+  const eqField = document.getElementsByClassName(
+    "eqField"
+  ) as HTMLCollectionOf<HTMLInputElement | HTMLTextAreaElement>;
+
+  // Initialize an empty string to store the list items
+  let strAq: string = "";
+
+  // Iterate through each element in the HTMLCollection
+  for (const e of Array.from(eqField)) {
+    // Append the value of each field as a list item to the string
+    strAq += `<li> ${e.value} </li>`;
+  }
+  // Find the element with the ID "aqT" and update its innerHTML
+  const aqT = document.getElementById("aqT") as HTMLElement;
+  if (aqT) {
+    aqT.innerHTML = strAq; // Update the innerHTML if the element exists
+  } else {
+    console.error('Element with ID "aqT" not found.');
+  }
+
+  //   Skills Section
+
+  // Get all elements with the class "ssFied" (input or textarea fields)
+  const ssFied = document.getElementsByClassName("ssFied") as HTMLCollectionOf<
+    HTMLInputElement | HTMLTextAreaElement
+  >;
+  // Initialize an empty string to store the list items
+  let strSkills: string = "";
+  // Iterate through each element in the HTMLCollection
+  for (const e of Array.from(ssFied)) {
+    // Append the value of each field as a list item to the string
+    strSkills += `<li> ${e.value} </li>`;
+  }
+  // Find the element with the ID "skillsT" and update its innerHTML
+  const skillsT = document.getElementById("skillsT") as HTMLElement;
+  if (skillsT) {
+    skillsT.innerHTML = strSkills; // Update the innerHTML if the element exists
+  } else {
+    console.error('Element with ID "skillsT" not found.');
+  }
+
+  // Code for setting the profile image
+  // Get the image input field (photoInput) from the DOM and cast it to HTMLInputElement
   const photoInput = document.getElementById("imgField") as HTMLInputElement;
-  const resumePhoto = document.getElementById("imgTemplate") as HTMLImageElement;
+
+  // Get the image element (resumePhoto) where the uploaded image will be displayed
+  const resumePhoto = document.getElementById(
+    "imgTemplate"
+  ) as HTMLImageElement;
+
+  // Check if a file is selected in the input field. If yes, get the first file; otherwise, set to null
   const photofile = photoInput.files ? photoInput.files[0] : null;
 
+  // Initialize an empty string to store the base64 representation of the image
+  let photoBase64 = "";
+
+  // If a photo is selected (photofile is not null)
   if (photofile) {
-    const photoBase64 = await fileToBase(photofile);
+    photoBase64 = await fileToBase(photofile);
     localStorage.setItem("imgTemplate", photoBase64);
     resumePhoto.src = photoBase64;
   }
 
+  /**
+   * Converts a file (image) to a Base64 string using FileReader.
+   * @param file - The image file to be converted.
+   * @returns A Promise that resolves to a Base64 string.
+   */
+
+  function fileToBase(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      // On successful file read, resolve the promise with the Base64 string
+      reader.onload = () => resolve(reader.result as string);
+
+      // If an error occurs during file reading, reject the promise
+      reader.onerror = reject;
+
+      // Start reading the file as a Data URL (Base64 encoded string)
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Toggle cv form and cv template options
+  // Hide the form and show the template
   const cvForm = document.getElementById("cv-form") as HTMLElement | null;
   const cvTemplate = document.getElementById("cv-template") as HTMLElement | null;
 
@@ -132,28 +284,27 @@ async function generateResume(): Promise<void> {
   }
 }
 
-// Utility function to convert image to Base64
-function fileToBase(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
-
-// Print Resume Function
+// Funciton to print resum
 function printCV() {
   window.print();
 }
 
-// Edit Resume Function
-function editCV() {
-  const cvForm = document.getElementById("cv-form") as HTMLElement | null;
-  const cvTemplate = document.getElementById("cv-template") as HTMLElement | null;
 
+
+// function to edit resume
+
+function editCV() {
+  // Get the form and template elements by their IDs
+  const cvForm = document.getElementById("cv-form") as HTMLElement | null;
+  const cvTemplate = document.getElementById(
+    "cv-template"
+  ) as HTMLElement | null;
+
+  // Check if the elements exist before accessing their style properties
   if (cvForm && cvTemplate) {
-    cvForm.style.display = "block";
-    cvTemplate.style.display = "none";
+    cvForm.style.display = "block"; // Show the CV form
+    cvTemplate.style.display = "none"; // Hide the CV template
+  } else {
+    console.error("One or both elements (cv-form or cv-template) not found.");
   }
 }
